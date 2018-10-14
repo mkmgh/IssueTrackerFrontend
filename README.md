@@ -1,27 +1,84 @@
-# TrackerProjectFrontend
+# IssueTrackerTool
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
 
-## Development server
+i. Login Page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. This is the first page to be loaded .
+2. If user new to application, he/she can redirect to signup page by choosing signup option from navbar.
+3. To get in to the IssueTrackerTool use your Email Id and Password to login.
+4. Make sure user trying login after email verification.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ii. SignUp Page
 
-## Build
+1. This page will have the form to sign up to the Issue Tracker Tool.
+2. User need to fill all the feilds and then click SignUp button which will then redirect to Login page if Succesful.
+3. Only with signup user cannot login directly to Application, There is requirement of email verification.
+4. Check your mail and click on the link which is mention in it.
+5. It will redirect to "email verified" page with accessible link on login. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+iii. Personalized Dashboard View:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. This is default panel will open after successful login.
+2. In this panel at the top of the application you can see the three buttons.
+3. First button(New Issue) is for registering the issue.
+4. After clicking on "New Issue" button modal form to fill details of the New Issue.
+5. On successful creation of Issue all users will get real time notification of it.
+5. Second buttom(Reported by me) is for getting details regarding Issues(In tabular format), which are register by logged in user. 
+6. Third button(Other Issues) is for getting details regarding Issues, which are not related to logged in user.
+7. Third buttom can help user to get details of all issues which are created by all users around this application.
+8. There is one more input bar "Search by Issue Title".
+9. This input bar helps you to search Issue according to thier title means this will help you to filter your search.
+10. In the section "Issues Assigned to me", User see the details of Issues, which are assigned to you to user in tabular format.
+11. On each column of table, logged in user can sort it in ascending and decending manner.
+12. Each row in the tables around this application will redirect to "Issue Description view".
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+iv. Issue description view:
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. After clicking any row of the table, user will redirect to "Issue description view".
+2. In this user can see all details of the issue.
+3. There is an edit icon at the details card, to edit the issue details.
+4. One more section at below, which is comment section.
+5. Where all users can put thier comments on issue.
+6. Any updation on issue will send real time notification to all users.
+
+
+
+v. Error views and Messages:
+
+During application use, if there is any page-not-found(404) OR server error(500) occured, at that time user will redirect to this separate pages designed for it.
+
+
+
+
+Live Link:
+
+http://issuetracker.emayurm.in.net
+
+Events Documentation Link:
+
+http://issuetracker-event-doc.emayurm.in.net/
+
+ApiDocumentation link:
+
+http://issuetracker-api-doc.emayurm.in.net/
+
+My credentials:
+
+*Email*:
+mayurmahamune7@gmail.com
+
+*Password*:
+Mayur@12
+
+Also friend's credentials to see *friend's* related functionality
+
+*Email*:
+rrastogi949@gmail.com
+
+*Password*:
+Raju@123
+
