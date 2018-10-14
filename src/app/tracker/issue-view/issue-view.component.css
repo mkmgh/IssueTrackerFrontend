@@ -1,0 +1,169 @@
+  .header{
+    background-color:#db5964;
+    color: white;
+    padding: 2%;
+    text-align: center;
+  }
+  .navbar{
+    cursor: pointer;
+  }
+
+
+  .user{
+    background-color:#4eb9c7;
+    color:black;
+    padding:5%;
+    display:block;
+    width:100%;
+    font-size:1.2em;
+    text-align:center;
+    font-family:sans-serif;
+  }
+
+
+
+  .description-window{
+    margin-top:2%;
+  }
+
+
+  
+  .edit1{
+    color: rgb(199, 9, 9);
+    float:right;
+    font-size:2em;
+    cursor:pointer;
+    padding-right: 0.2em;
+  }
+
+
+  .edit1:hover{
+    color: rgb(92, 7, 7);
+    float:right;
+    font-size:2em;
+    cursor:pointer;
+    padding-right: 0.2em;
+  }
+
+
+
+  .fasquare{
+    float: center;
+    margin-top:3%;
+  }
+  .fasquare:hover{
+    color:rgb(22, 83, 37);
+    cursor:pointer;
+  }
+
+  .aside{
+    background:  #f5f5f5;
+    overflow:auto;
+    margin-top:2%;
+  }
+
+  .aside1{
+    overflow:auto;
+    margin-top:2%;
+  }
+
+
+  .comments {
+    width: 100%;
+    float: left;
+    background: #F2F5F8;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    color: #304388;
+    margin-bottom: 40px;
+  }
+
+
+  .blankContent{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #999;
+  }
+
+
+
+  .scrollbar {
+    margin-top: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+   
+    height: 300px;
+    background: rgb(175, 241, 250);
+    overflow-y: scroll;
+    margin-bottom: 25px;
+  }
+  .force-overflow {
+      min-height: 300px;
+  }
+
+  .textarea{
+    margin: 2%;
+    width: 70%
+  }
+
+
+
+  /*
+  for testing
+  */
+
+  .my-comment {
+    background: #86BB71;
+    margin: .5%;
+    border-radius: 7px;
+    float: right;
+    padding: 2%;
+  }
+  
+  .other-comment {
+    background: #94C2ED;
+    margin: .5%;
+    border-radius: 7px;
+    float: left;
+    padding: 2%;
+
+  }
+
+  .floatLeft{
+    float: left;
+  }
+
+  
+  .floatRight{
+    float: right;
+  }
+
+  .fieldName{
+    color: rgb(3, 2, 3);
+    float:left
+  }
+
+  
+  .fieldName1{
+    float: right;
+  }
+
+
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #0a0707;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #a59c9c;
+  }

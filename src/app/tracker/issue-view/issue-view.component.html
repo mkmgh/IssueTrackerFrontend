@@ -1,0 +1,204 @@
+<div class="container-fluid">
+
+    <div class="col-12 header">
+        <h1>Issue Tracker Tool</h1>
+    </div>
+
+
+    <!--Modal to update issue-->
+
+    <div id="myModal" class="modal fade" role="dialog"  tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Update Issue Details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+
+                    <div class="md-form mb-5">
+                      <label data-error="wrong" data-success="right">Issue Title</label>
+                      <input  [(ngModel)]="issueTitle" type="Title" class="form-control validate" required>
+                    </div>
+    
+                    <div class="md-form mb-4">
+                        <label data-error="wrong"  for="inputGroupSelect01" data-success="right">Status</label>
+                        <!--
+                        <input [(ngModel)]="status"  type="status" class="form-control validate">
+                        -->
+                        <select  [(ngModel)]="status" class="custom-select" id="inputGroupSelect01" required>
+                            <option selected>Choose...</option>
+                            <option value="backlog">backlog</option>
+                            <option value="in-progress">in-progress</option>
+                            <option value="in-test">in-test</option>
+                            <option value="done">done</option>
+                        </select>
+
+                    </div>
+
+
+                          
+                    <div class="md-form mb-4">
+                        <label data-error="wrong" data-success="right">Description</label>
+                        <!--
+                        <textarea [(ngModel)]="description"  type="description" class="form-control validate"></textarea>
+                        -->
+                        <app-ngx-editor [placeholder]="'Enter description here...'" [spellcheck]="true" [(ngModel)]="description"></app-ngx-editor>
+
+                    </div>
+
+
+                    <div class="md-form mb-4">
+                            <label data-error="wrong"  for="inputGroupSelect01" data-success="right">Assignee</label>
+                            <select  [(ngModel)]="assignee" class="custom-select" id="inputGroupSelect01" required>
+                                    <option selected>Choose...</option>
+                                        <!--
+                                        <option  *ngFor="let user of users1" value="{{user.firstName}} {{user.lastName}}">
+                                            <p *ngIf="user.firstName+' '+user.lastName!=fullName">{{user.firstName}} {{user.lastName}}</p>
+                                        </option>
+                                        -->
+                                    
+                                        <option  *ngFor="let user of users2" value="{{user.firstName}} {{user.lastName}}">
+                                            <p>{{user.firstName}} {{user.lastName}}</p>
+                                        </option>
+                                    
+
+
+                            </select>
+    
+                    </div>
+
+
+                    
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-danger" data-dismiss="modal" (click)="updateIssue()">Save Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-lg-3 aside">
+          <span class="user" >
+              <b>{{fullName}}</b><br>
+              <small style="font-weight:bold;">Issue Tracker Tool</small>
+          </span>
+          <div col-sm-12>
+              
+              <button type="button" routerLink="/dashboard" class="btn btn-success fasquare">Back To Dashboard</button>
+
+          </div>
+          <hr class="lead">      
+      </div>
+
+      <div class="col-lg-8 card text-center description-window" style="background-color:bisque">
+        <div class="card-header" *ngIf='issueDetails'>
+            <u><h3 style="color:rgb(17, 8, 1)">Issue Description View</h3></u>
+            <i class="fa fa-edit edit1" title="Edit Issue Details"  data-toggle="modal" data-target="#myModal" (click)="setIssueDetails(issueDetails.issueId,issueDetails.issueTitle,issueDetails.status,issueDetails.description,issueDetails.assignee)"></i>
+        </div>
+
+        <div class="card-body" *ngIf='issueDetails'>
+                    
+            <div class="table-responsive-lg">
+                <table class="table">
+
+                    <tbody>
+                    <tr>
+                        <th scope="row">Issue Title</th>
+                        <td><b class="fieldName1">{{issueDetails.issueTitle}}</b></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Status of Bug</th>
+                        <td><b class="fieldName1">{{issueDetails.status}}</b></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reporter</th>
+                        <td><b class="fieldName1">{{issueDetails.reporterName}}</b></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Assignee</th>
+                        <td><b class="fieldName1">{{issueDetails.assignee}}</b></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td><p class="fieldName1" [innerHTML]="issueDetails.description">{{issueDetails.description}}</p></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date of Registration</th>
+                        <td><b class="fieldName1">{{issueDetails.reportedOn |  date:'medium' }}</b></td>
+                    </tr>    
+                    <tr>
+                        <th scope="row">Attachments</th>
+                        <td><a href="{{issueDetails.attachments}}" target="_blank" class="fieldName1" title="Click here to download">attached-file</a></td>
+                    </tr>    
+                
+                
+                    </tbody>
+                </table>
+                
+            </div>
+
+
+        
+            <h5 class="card-title"><u class="fieldName">Comments</u></h5><br><br>
+            <div class="col-12 col-sm-12 col-md-12 comments ">
+
+                <div class="scrollbar scrollbar-primary">
+                    <div class="force-overflow">
+                        <div *ngFor="let comment of AllCommentsOfIssue">
+                            <div *ngIf="comment">
+                                <span [ngClass]="{'floatRight': comment.userId == userId, 'floatLeft': comment.userId != userId}">{{comment.commentedOn |  date}}</span><br>
+                                <span [ngClass]="{'my-comment': comment.userId == userId, 'other-comment': comment.userId != userId}">{{comment.comment}}</span><br>
+                                <span [ngClass]="{'floatRight': comment.userId == userId, 'floatLeft': comment.userId != userId}">{{comment.userName}}</span><br><br><br>
+                            </div>
+                        </div>    
+                        <div *ngIf="!AllCommentsOfIssue" class="col-sm blankContent">
+                                <span>Comment Not Available</span><br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row"> 
+                        <textarea class="textarea"  [(ngModel)]="comment" placeholder="Type your comment"></textarea>
+                        
+                        <button type="button" class="btn btn-primary" style="margin:2%" (click)=addNewComment()>Send</button>
+
+                </div>
+            </div>
+
+            <h5 class="card-title col-sm-12"><u class="fieldName">Watchers</u></h5><br><hr><br>
+            <div class="col-sm-12 floatLeft" *ngIf="issueDetails.watchers">
+                <p *ngFor="let watcher of issueDetails.watchers; let i = index">
+                    <b>{{i+1}}. {{watcher.watcherName}}</b>
+                </p>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="card-footer">
+            <a class="btn btn-primary"(click)=addAsWatcher(issueId)>Watch</a>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+
+</div>
+
+
+
