@@ -52,6 +52,24 @@ v. Error views and Messages:
 During application use, if there is any page-not-found(404) OR server error(500) occured, at that time user will redirect to this separate pages designed for it.
 
 
+## Screenshots of Application
+
+### Login Page
+![alt loginpage](https://github.com/mkmgh/IssueTrackerFrontend/blob/master/Screenshot/login.png)
+
+### Dashboard
+![alt dashboardpage](https://github.com/mkmgh/IssueTrackerFrontend/blob/master/Screenshot/dashboard.png)
+
+### New Issue Registration
+![alt createissuepage](https://github.com/mkmgh/IssueTrackerFrontend/blob/master/Screenshot/create_new_issue.png)
+
+### Issue Details View
+![alt issueviewpage](https://github.com/mkmgh/IssueTrackerFrontend/blob/master/Screenshot/issue_details.png)
+
+### Edit Issue Details
+![alt issueeditpage](https://github.com/mkmgh/IssueTrackerFrontend/blob/master/Screenshot/edit_issue_details.png)
+
+
 
 
 Live Link:
@@ -82,3 +100,12 @@ rrastogi949@gmail.com
 *Password*:
 Raju@123
 
+
+## Authors
+
+* **Mayur Mahamune** - *Initial work* - [MayurMahamune](https://github.com/mkmgh)
+* **Edwisor** - *Problem Statement* - [Edwisor](https://s3-ap-southeast-1.amazonaws.com/edwisor-india-bucket/projects/web/web03/Web030103-Issue-Tracking-Tool.pdf)
+
+## Acknowledgments
+
+* Thanks Edwisor for helping to improve my skills.
